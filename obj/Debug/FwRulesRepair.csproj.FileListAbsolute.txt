@@ -1,0 +1,15 @@
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\bin\Debug\FwRulesRepair.exe.config
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\bin\Debug\FwRulesRepair.exe
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\bin\Debug\FwRulesRepair.pdb
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\bin\Debug\AryxDevLibrary.dll
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\bin\Debug\Windows.winmd
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\bin\Debug\AryxDevLibrary.xml
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\obj\Debug\FwRulesRepair.csproj.AssemblyReference.cache
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\obj\Debug\Interop.NATUPNPLib.dll
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\obj\Debug\Interop.NETCONLib.dll
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\obj\Debug\Interop.NetFwTypeLib.dll
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\obj\Debug\FwRulesRepair.csproj.ResolveComReference.cache
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\obj\Debug\FwRulesRepair.csproj.CoreCompileInputs.cache
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\obj\Debug\FwRulesRepair.csproj.CopyComplete
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\obj\Debug\FwRulesRepair.exe
+E:\CSharp\Projects\FwRulesRepair\FwRulesRepair\obj\Debug\FwRulesRepair.pdb
