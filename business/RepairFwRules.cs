@@ -13,12 +13,13 @@ using FwRulesRepair.business.repairs;
 using FwRulesRepair.cst;
 using FwRulesRepair.utils;
 using NetFwTypeLib;
+using NLog;
 
 namespace FwRulesRepair.business
 {
     class RepairFwRules
     {
-        private static Logger log = Logger.LastLoggerInstance;
+        private static readonly Logger log = NLog.LogManager.GetCurrentClassLogger();
 
         public void DoJob()
         {
