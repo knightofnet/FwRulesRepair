@@ -58,9 +58,14 @@
     <Compile Include="business\repairs\RepairGeneric.cs" />
     <Compile Include="business\repairs\RepairWindowApp.cs" />
     <Compile Include="cst\Cst.cs" />
+    <Compile Include="cst\DirectionsEnum.cs" />
     <Compile Include="cst\ProtocoleEnum.cs" />
+    <Compile Include="dto\EntryAdv.cs" />
+    <Compile Include="dto\VsChangePotential.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utils\DevicePathMapper.cs" />
+    <Compile Include="utils\EventEntryExtension.cs" />
     <Compile Include="utils\FwUtils.cs" />
     <Compile Include="utils\MiscAppUtils.cs" />
     <Compile Include="utils\PathUtils.cs" />
@@ -98,9 +103,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="dto\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\UsefulCsharpCommonsUtils\UsefulCsharpCommonsUtils.csproj">
       <Project>{aaf4a292-3b43-408c-8a97-914f9bebe7c1}</Project>

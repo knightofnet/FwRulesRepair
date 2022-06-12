@@ -8,6 +8,7 @@ using FwRulesRepair.cst;
 using NetFwTypeLib;
 using NLog;
 using UsefulCsharpCommonsUtils.lang;
+using UsefulCsharpCommonsUtils.lang.ext;
 
 namespace FwRulesRepair.utils
 {
@@ -327,7 +328,7 @@ namespace FwRulesRepair.utils
 
                 foreach (INetFwRule fwRule in firewallPolicy.Rules)
                 {
-                    if (!String.IsNullOrWhiteSpace(fwRule.ApplicationName))
+                    if (!string.IsNullOrWhiteSpace(fwRule.ApplicationName))
                     {
 
                         if (!direction.HasValue ||
