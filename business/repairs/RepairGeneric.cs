@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using AryxDevLibrary.utils;
-using AryxDevLibrary.utils.logger;
+
 using FwRulesRepair.utils;
 using NetFwTypeLib;
+using NLog;
+using UsefulCsharpCommonsUtils.file;
+using UsefulCsharpCommonsUtils.file.dir;
 
 namespace FwRulesRepair.business.repairs
 {
     public class RepairGeneric : AbstractCanRepair
     {
-        private static Logger _log = Logger.LastLoggerInstance;
+        private static readonly Logger log = NLog.LogManager.GetCurrentClassLogger();
         public INetFwRule Rule { get; private set; }
         public string FilePathMask { get; private set; }
         public string MaskDetected { get; private set; }
@@ -50,7 +52,7 @@ namespace FwRulesRepair.business.repairs
             int ixMatch = PathUtils.IndexOfMask(Rule.ApplicationName, MaskDetected);
             if (ixMatch == -1)
             {
-                _log.Error("No mask finally");
+                log.Error("No mask finally");
                 return;
             }
 
@@ -64,13 +66,13 @@ namespace FwRulesRepair.business.repairs
             DirectoryInfo dirD = new DirectoryInfo(subDir);
             if (!dirD.Exists)
             {
-                _log.Error("{0} doesnt exist anymore", subDir);
+                log.Error("{0} doesnt exist anymore", subDir);
             }
 
-            List<FileInfo> list = FileUtils.GetFilesRecursively(dirD).Where(r => PathUtils.IsMatchMask(r.FullName, FilePathMask)).ToList();
+            List<FileInfo> list = Dir.Children(dirD, true).OfType<FileInfo>().Where(r => PathUtils.IsMatchMask(r.FullName, FilePathMask)).ToList();
             foreach (FileInfo matching in list)
             {
-                _log.Debug(matching.FullName);
+                log.Debug(matching.FullName);
             }
         }
     }

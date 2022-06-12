@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Windows.ApplicationModel;
 using Windows.Management.Deployment;
-using AryxDevLibrary.utils.logger;
+
 using FwRulesRepair.cst;
 using NetFwTypeLib;
+using NLog;
 
 namespace FwRulesRepair.business.repairs
 {
     class RepairWindowApp : AbstractCanRepair
     {
-        private static Logger _log = Logger.LastLoggerInstance;
+       private static readonly Logger log = NLog.LogManager.GetCurrentClassLogger();
 
-   
+
 
         public String AppName { get; private set; }
 
@@ -67,7 +68,7 @@ namespace FwRulesRepair.business.repairs
                     {
                         try
                         {
-                            _log.Error(p.InstalledLocation.ToString());
+                            log.Error(p.InstalledLocation.ToString());
                             if (p.InstalledLocation != null && Directory.Exists(p.InstalledLocation.Path))
                             {
                                 pf = p;
@@ -91,15 +92,15 @@ namespace FwRulesRepair.business.repairs
                 }
                 else
                 {
-                    _log.Warn("Package not found. Unable to repair");
+                    log.Warn("Package not found. Unable to repair");
                 }
             }
             catch (System.UnauthorizedAccessException ex)
             {
-                _log.Warn("Unauthorized access to update rule. Try running with admin rights");
+                log.Warn("Unauthorized access to update rule. Try running with admin rights");
 #if DEBUG
-                _log.Warn(ex.Message);
-                _log.Error(ex.StackTrace);
+                log.Warn(ex.Message);
+                log.Error(ex.StackTrace);
 #endif
             }
         }

@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.Management.Deployment;
-using AryxDevLibrary.utils.logger;
+
 using FwRulesRepair.business.repairs;
 using FwRulesRepair.cst;
 using FwRulesRepair.utils;

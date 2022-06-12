@@ -5,10 +5,11 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using AryxDevLibrary.utils.logger;
+
 using FwRulesRepair.business;
 using FwRulesRepair.utils;
 using NetFwTypeLib;
+using NLog;
 
 namespace FwRulesRepair
 {
@@ -18,6 +19,8 @@ namespace FwRulesRepair
 
         static void Main(string[] args)
         {
+            InitLogger();
+
             /*
             string asDir = new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName;
             if (!String.IsNullOrWhiteSpace(asDir) && Directory.GetCurrentDirectory() != asDir)
@@ -25,8 +28,7 @@ namespace FwRulesRepair
                 Directory.SetCurrentDirectory(asDir);
             }
             */
-            _log = new Logger( "log.log", Logger.LogLvl.DEBUG, Logger.LogLvl.DEBUG, "1 Mo",
-                "main");
+         
 
 
             RepairFwRules repInst = new RepairFwRules();
@@ -35,6 +37,23 @@ namespace FwRulesRepair
 #if DEBUG
             Console.ReadLine();
 #endif
+        }
+
+        private static void InitLogger()
+        {
+            var config = new NLog.Config.LoggingConfiguration();
+            // Targets where to log to: File and Console
+            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = "file.log" };
+            var logconsole = new NLog.Targets.ConsoleTarget("logconsole");
+
+            // Rules for mapping loggers to targets            
+            config.AddRule(LogLevel.Debug, LogLevel.Fatal, logconsole);
+            config.AddRule(LogLevel.Debug, LogLevel.Fatal, logfile);
+
+            // Apply config           
+            LogManager.Configuration = config;
+
+            _log = NLog.LogManager.GetCurrentClassLogger();
         }
     }
 }

@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AryxDevLibrary.extensions;
-using AryxDevLibrary.utils;
-using AryxDevLibrary.utils.logger;
+
 using FwRulesRepair.cst;
 using NetFwTypeLib;
+using NLog;
+using UsefulCsharpCommonsUtils.lang;
 
 namespace FwRulesRepair.utils
 {
     public static class FwUtils
     {
-        private static Logger log = Logger.LastLoggerInstance;
+        private static readonly Logger log = NLog.LogManager.GetCurrentClassLogger();
 
         public static INetFwRule CreateRuleForRemoteAddresses(string name, NET_FW_RULE_DIRECTION_ direction, ProtocoleEnum protocole, bool isAllow, String description, List<string> adress)
         {
@@ -83,7 +83,7 @@ namespace FwRulesRepair.utils
         {
             try
             {
-                String uniqueS = StringUtils.RandomString(8, ensureUnique: true);
+                String uniqueS = CommonsStringUtils.RandomString(8, ensureUnique: true);
 
                 INetFwRule firewallRule = (INetFwRule)Activator.CreateInstance(
                     Type.GetTypeFromProgID("HNetCfg.FWRule"));
@@ -118,7 +118,7 @@ namespace FwRulesRepair.utils
             }
             catch (Exception e)
             {
-                ExceptionHandlingUtils.LogAndHideException(e, "GetRule");
+                //ExceptionHandlingUtils.LogAndHideException(e, "GetRule");
                 return null;
             }
         }
@@ -127,7 +127,7 @@ namespace FwRulesRepair.utils
         {
             try
             {
-                String uniqueS = StringUtils.RandomString(8, ensureUnique: true);
+                String uniqueS = CommonsStringUtils.RandomString(8, ensureUnique: true);
 
                 INetFwRule firewallRule = (INetFwRule)Activator.CreateInstance(
                     Type.GetTypeFromProgID("HNetCfg.FWRule"));
@@ -163,7 +163,7 @@ namespace FwRulesRepair.utils
             }
             catch (Exception e)
             {
-                ExceptionHandlingUtils.LogAndHideException(e, "RemoveRule");
+                //ExceptionHandlingUtils.LogAndHideException(e, "RemoveRule");
                 return false;
             }
         }
@@ -195,7 +195,7 @@ namespace FwRulesRepair.utils
             }
             catch (Exception e)
             {
-                ExceptionHandlingUtils.LogAndHideException(e, "GetRuleNameRegex");
+               // ExceptionHandlingUtils.LogAndHideException(e, "GetRuleNameRegex");
                 throw e;
             }
         }
@@ -204,7 +204,7 @@ namespace FwRulesRepair.utils
         {
             try
             {
-                String uniqueS = StringUtils.RandomString(8, ensureUnique: true);
+                String uniqueS = CommonsStringUtils.RandomString(8, ensureUnique: true);
 
                 INetFwRule firewallRule = (INetFwRule)Activator.CreateInstance(
                     Type.GetTypeFromProgID("HNetCfg.FWRule"));
@@ -248,7 +248,7 @@ namespace FwRulesRepair.utils
             }
             catch (Exception e)
             {
-                ExceptionHandlingUtils.LogAndHideException(e, "IsExistsRule");
+                //ExceptionHandlingUtils.LogAndHideException(e, "IsExistsRule");
                 return false;
             }
         }
@@ -278,7 +278,7 @@ namespace FwRulesRepair.utils
             }
             catch (Exception e)
             {
-                ExceptionHandlingUtils.LogAndHideException(e, "IsExistsRuleForProgram");
+                //ExceptionHandlingUtils.LogAndHideException(e, "IsExistsRuleForProgram");
 
                 return false;
             }
@@ -309,7 +309,7 @@ namespace FwRulesRepair.utils
             }
             catch (Exception e)
             {
-                ExceptionHandlingUtils.LogAndHideException(e, "GetRuleForProgram");
+                //ExceptionHandlingUtils.LogAndHideException(e, "GetRuleForProgram");
 
                 return null;
             }
@@ -341,7 +341,7 @@ namespace FwRulesRepair.utils
             }
             catch (Exception e)
             {
-                ExceptionHandlingUtils.LogAndHideException(e, "GetRulesWithProgram");
+                //ExceptionHandlingUtils.LogAndHideException(e, "GetRulesWithProgram");
 
             }
 
@@ -373,7 +373,7 @@ namespace FwRulesRepair.utils
             }
             catch (Exception e)
             {
-                ExceptionHandlingUtils.LogAndHideException(e, "GetRuleForProgram");
+               //ExceptionHandlingUtils.LogAndHideException(e, "GetRuleForProgram");
 
             }
 

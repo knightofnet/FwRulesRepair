@@ -1,12 +1,13 @@
 ﻿using System.IO;
-using AryxDevLibrary.utils.logger;
+
 using NetFwTypeLib;
+using NLog;
 
 namespace FwRulesRepair.business
 {
     public abstract class AbstractCanRepair
     {
-        private static Logger _log = Logger.LastLoggerInstance;
+        private static readonly Logger log = NLog.LogManager.GetCurrentClassLogger();
 
         public bool IsFwAppMustNotExist { get; set; }
         protected AbstractCanRepair(bool isFwAppMustNotExist)
@@ -23,7 +24,7 @@ namespace FwRulesRepair.business
         {
             if (IsFwAppMustNotExist && File.Exists(fwRule.ApplicationName))
             {
-                _log.Debug("Existing and correct filepath: {0}, nothing to repair", fwRule.ApplicationName);
+                log.Debug("Existing and correct filepath: {0}, nothing to repair", fwRule.ApplicationName);
                 return false;
             }
 

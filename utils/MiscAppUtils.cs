@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AryxDevLibrary.utils;
+
 
 namespace FwRulesRepair.utils
 {
@@ -13,7 +13,7 @@ namespace FwRulesRepair.utils
 
         public static bool IsValidFilepath(String filePath)
         {
-            if (StringUtils.IsNullOrWhiteSpace(filePath))
+            if (string.IsNullOrWhiteSpace(filePath))
             {
                 return false;
             }

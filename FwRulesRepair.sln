@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FwRulesRepair", "FwRulesRep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FwRulesTU", "..\FwRulesTU\FwRulesTU.csproj", "{37B73D4B-7643-4A38-A347-BEB7B63EB427}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsefulCsharpCommonsUtils", "..\..\UsefulCsharpCommonsUtils\UsefulCsharpCommonsUtils.csproj", "{AAF4A292-3B43-408C-8A97-914F9BEBE7C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{37B73D4B-7643-4A38-A347-BEB7B63EB427}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37B73D4B-7643-4A38-A347-BEB7B63EB427}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37B73D4B-7643-4A38-A347-BEB7B63EB427}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAF4A292-3B43-408C-8A97-914F9BEBE7C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAF4A292-3B43-408C-8A97-914F9BEBE7C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAF4A292-3B43-408C-8A97-914F9BEBE7C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAF4A292-3B43-408C-8A97-914F9BEBE7C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
