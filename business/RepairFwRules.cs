@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.Management.Deployment;
 using AryxDevLibrary.utils.logger;
+using FwRulesRepair.business.repairs;
 using FwRulesRepair.cst;
 using FwRulesRepair.utils;
 using NetFwTypeLib;
@@ -39,21 +40,31 @@ namespace FwRulesRepair.business
                 log.Debug("Invalid filepath: {0}", appPath);
                 isGoTreat = false;
             }
-            else if (File.Exists(appPath))
-            {
-                log.Debug("Existing and correct filepath: {0}, nothing to repair", appPath);
-                isGoTreat = false;
-            }
+
 
             if (!isGoTreat) return;
 
             log.Info("Check rule for {0}", appPath);
 
-            RepairWindowApp r = RepairWindowApp.DetectIfMatch(rule);
-            if (r != null)
+            // WindowsApp
+            AbstractCanRepair r = new RepairWindowApp();
+            if (r.DetectIfMatch(rule))
             {
                 log.Info("Is windowsApp. Try autoRepair...");
                 r.Treat();
+                return;
+            }
+
+            // Discord
+            AbstractCanRepair rd = new RepairGeneric($@"discord\app-{PathUtils.VersionMajMinBuild}\discord.exe")
+            {
+                IsFwAppMustNotExist = false
+            };
+            if (rd.DetectIfMatch(rule))
+            {
+                log.Info("Is Discord. Try autoRepair...");
+                rd.Treat();
+                return;
             }
 
 

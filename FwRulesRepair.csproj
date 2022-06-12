@@ -51,14 +51,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="business\AbstractCanRepair.cs" />
     <Compile Include="business\RepairFwRules.cs" />
-    <Compile Include="business\RepairWindowApp.cs" />
+    <Compile Include="business\repairs\RepairGeneric.cs" />
+    <Compile Include="business\repairs\RepairWindowApp.cs" />
     <Compile Include="cst\Cst.cs" />
     <Compile Include="cst\ProtocoleEnum.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils\FwUtils.cs" />
     <Compile Include="utils\MiscAppUtils.cs" />
+    <Compile Include="utils\PathUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
